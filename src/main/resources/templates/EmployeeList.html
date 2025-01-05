@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Employee List</title>
+</head>
+<body>
+
+	<th:block th:insert = "Navbar.html"></th:block>
+	
+	
+	<div class = "container-fluid p-5">
+	
+		<div class = "card">
+			<div class = "card-header bg-info text-center text-white">
+				<h5>Employee List</h5>
+			</div>	
+			
+			
+			<div class = "card-body">
+				<table class = "table table-hover">
+				
+				<thead>
+					<tr>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Gender</th>
+						<th>Phone</th>
+						<th>Email</th>
+						<th>Salary</th>
+						<th>Address</th>
+						<th>Department</th>
+						<th>Projects</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					
+					
+					<tr th:each = "e : ${eList}">
+						<td>[[${e.fname}]]</td>
+						<td>[[${e.lname}]]</td>
+						<td>[[${e.gender}]]</td>
+						<td>[[${e.phone}]]</td>
+						<td>[[${e.email}]]</td>
+						<td>[[${e.salary}]]</td>
+						<td>[[${e.address}]]</td>
+						
+						
+						<td>
+							<a th:href = "@{/emp/edit(id = ${e.id})}"> <input type = "submit" value = "Update" class = "btn btn-success"> </a>
+							<a th:href = "@{/emp/delete(id = ${e.id})}"> <input type = "submit" value = "Delete" class = "btn btn-danger"> </a>
+						</td>
+					</tr>
+				</tbody>
+				
+				</table>
+				
+				
+			</div>
+			
+			
+			<div class = "card-footer text-center bg-warning">
+				Copyright@2019
+			</div>
+		
+		</div>
+	
+	</div>
+</body>
+</html>

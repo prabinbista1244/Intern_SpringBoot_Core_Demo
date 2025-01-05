@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Employee</title>
+</head>
+<body>
+
+
+<th:block th:insert = "Navbar.html"></th:block>
+	
+	<div class = "container-fluid p-5">
+	
+		<div class = "card">
+			<div class = "card-header bg-info text-center text-white">
+				<h5>Employee Details</h5>
+			</div>	
+			
+			
+			<div class = "card-body">
+			
+			<form action="/postEmployee" method = "post">
+			
+				<div class = "row p-2">
+					<div class = "col-4">First Name</div>
+					<div class = "col-6">
+						<input type = "text" name = "fname" class = "form-control">
+					</div>
+				</div>
+				
+				<div class = "row p-2">
+					<div class = "col-4">Last Name</div>
+					<div class = "col-6">
+						<input type = "text" name = "lname" class = "form-control">
+					</div>
+				</div>
+				
+					<div class = "row p-2">
+					<div class = "col-4">Gender</div>
+					<div class = "col-6">
+						<input type = "radio" name = "gender" value = "male">Male
+						<input type = "radio" name = "gender" value = "female">female
+					</div>
+				</div>
+				
+				
+				<div class = "row p-2">
+					<div class = "col-4">Date of Birth</div>
+					<div class = "col-6">
+						<input type = "date" name = "DoB" class = "form-control">
+					</div>
+				</div>
+				
+				<div class = "row p-2">
+					<div class = "col-4">Phone</div>
+					<div class = "col-6">
+						<input type = "text" name = "phone" class = "form-control">
+					</div>
+				</div>
+				
+				<div class = "row p-2">
+					<div class = "col-4">Email</div>
+					<div class = "col-6">
+						<input type = "email" name = "email" class = "form-control">
+					</div>
+				</div>
+				
+				<div class = "row p-2">
+					<div class = "col-4">Company</div>
+					<div class = "col-6">
+						<input type = "text" name = "companyname" class = "form-control">
+					</div>
+				</div>
+				
+				<div class = "row p-2">
+					<div class = "col-4">Post</div>
+					<div class = "col-6">
+						<input type = "text" name = "post" class = "form-control">
+					</div>
+				</div>
+				
+				<div class = "row p-2">
+					<div class = "col-4">Salary</div>
+					<div class = "col-6">
+						<input type = "number" name = "salary" class = "form-control">
+					</div>
+				</div>
+				
+				<div class = "row p-2">
+					<div class = "col-4">Join date</div>
+					<div class = "col-6">
+						<input type = "date" name = "joindate" class = "form-control">
+					</div>
+				</div>
+				
+				<div class = "row p-2">
+					<div class = "col-4">Country</div>
+					<div class = "col-6">
+						<input type = "text" name = "address.country" class = "form-control">
+					</div>
+				</div>
+				
+				<div class = "row p-2">
+					<div class = "col-4">City</div>
+					<div class = "col-6">
+						<input type = "text" name = "address.city" class = "form-control">
+					</div>
+				</div>
+				
+				<div class = "row p-2">
+					<div class = "col-4">State</div>
+					<div class = "col-6">
+						<select name = "address.state" class = "form-control">
+							<option value="">Select</option>
+							<option value="state-1">state-1</option>
+							<option value="state-2">state-2</option>
+							<option value="state-3">state-3</option>
+							<option value="state-4">state-4</option>
+							<option value="state-5">state-5</option>
+							<option value="state-6">state-6</option>
+							<option value="state-7">state-7</option>
+						</select>
+					</div>
+				</div>
+				
+				<div class = "row p-2">
+					<div class = "col-4">ZipCode</div>
+					<div class = "col-6">
+						<input type = "text" name = "address.zipcode" class = "form-control">
+					</div>
+				</div>
+				
+				<div class = "row p-2">
+					<div class = "col-4">Projects</div>
+					<div class = "col-6">
+						<input type = "checkbox" name = "projects" value = "project-1">Project-1
+						<input type = "checkbox" name = "projects" value = "project-2">Project-2
+						<input type = "checkbox" name = "projects" value = "project-3">Project-3
+						<input type = "checkbox" name = "projects" value = "project-4">Project-4
+						<input type = "checkbox" name = "projects" value = "project-5">Project-5
+						<input type = "checkbox" name = "projects" value = "project-6">Project-6
+					</div>
+				</div>
+				
+				
+				
+				
+				<div class = "row p-2">
+					<div class = "col-4">Departments</div>
+					<div class = "col-6">
+						<select name = "departments" class = "form-control">
+							<option value = "">Select</option>
+							<option th:each="d:${fromEmpControllerDList}" th:value = "${d.id}">[[${d.dept_name}]]</option>
+						
+						</select>
+					</div>
+				</div>
+				
+				
+				<div class = "row p-2">
+					<div class = "col-4"></div>
+					<div class = "col-6">
+						<input type = "submit" value = "Add" class = "btn-btn-success">
+					</div>
+				</div>
+			</form>
+				
+				
+			</div>
+			<div class = "card-footer text-center bg-warning">
+				Copyright@2019
+			</div>
+		
+		</div>
+	
+	</div>
+
+</body>
+</html>

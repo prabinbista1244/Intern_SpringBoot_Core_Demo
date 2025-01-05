@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Department List</title>
+
+</head>
+<body>
+	<th:block th:insert = "Navbar.html"></th:block>
+	
+	<div class = "container-fluid p-5">
+	
+		<div class = "card">
+			<div class = "card-header bg-info text-center text-white">
+				<h5>Department Details</h5>
+			</div>	
+			
+			
+			<div class = "card-body">
+				<table class = "table table-hover">
+				
+				<thead>
+					<tr>
+						<th>Department Name</th>
+						<th>Department Head</th>
+						<th>Department Phone</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					
+					<tr th:each = "d : ${dList}">
+						<td>[[${d.dept_name}]]</td>
+						<td>[[${d.dept_head}]]</td>
+						<td>[[${d.dept_phone}]]</td>
+						<td>
+							<a th:href = "@{/dept/edit(id = ${d.id})}"> <input type = "submit" value = "Edit" class = "btn btn-success"> </a>
+							<a th:href = "@{/dept/delete(id = ${d.id})}"> <input type = "submit" value = "Delete" class = "btn btn-danger"> </a>
+						</td>
+					</tr>
+				</tbody>
+				
+				</table>
+				
+				
+			</div>
+			
+			
+			<div class = "card-footer text-center bg-warning">
+				Copyright@2019
+			</div>
+		
+		</div>
+	
+	</div>
+</body>
+</html>
