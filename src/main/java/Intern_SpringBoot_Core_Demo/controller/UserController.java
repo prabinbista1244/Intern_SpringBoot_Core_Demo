@@ -29,7 +29,6 @@ public class UserController {
 		user.setPassword(DigestUtils.md5DigestAsHex(user.getPassword().getBytes()));
 		User u = userService.userLogin(user.getEmail(), user.getPassword());
 		
-		
 		if(u != null) {
 			m.addAttribute("name", u.getName());
 			return "Home";
